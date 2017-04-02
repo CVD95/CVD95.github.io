@@ -1,0 +1,39 @@
+<h1>{{pageTitle}}</h1>
+<div class="col-lg-6">
+	    <div class="input-group">
+	      <input type="text" class="form-control" placeholder="Search for..." ng-model="searchTerm">
+	    </div>
+</div>
+<table class="table table-hover">
+    	<thead>
+    		<tr>
+    			<th>Id</th><th>Type</th><th>Result</th><th>Competitive</th><th>TimeStarted</th><th>DayOfTheWeek</th><th>Music</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr ng-repeat="match in matches | filter: searchTerm | filter:{playername: currentuser.username}" ng-click="matchDetails(match.id)">
+                <td>{{match.id}}</td>
+                <td>
+                    {{match.type}}
+                </td>
+                <td>
+                    {{match.result}}
+                </td>
+                <td>
+                    <input type="checkbox" ng-model="match.competitive" ng-disabled="true">
+                </td>
+                <td>
+                    {{match.timestarted | date : "HH:mm"}}
+                </td>
+                <td>
+                    {{match.dayoftheweek}}
+                </td>
+                <td>
+                    <input type="checkbox" ng-model="match.music" ng-disabled="true">
+                </td>
+    		</tr>
+
+    	</tbody>
+    </table>
+
+    <hr>

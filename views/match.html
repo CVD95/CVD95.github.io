@@ -1,0 +1,157 @@
+<h1>Match details</h1>
+<div>
+    <h2>Match</h2>
+    <table class="table">
+    	<thead>
+    		<tr>
+    			<th>Attribute</th><th>Value</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+                <td>Id</td>
+                <td>{{currentMatch.id}}</td>
+    		</tr>
+            <tr>
+                <td>Type</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.type}}</span>
+                    <select class="form-control" ng-model="currentMatch.type" ng-options="type for type in types" ng-show="currentMatch.updating"></select>
+                </td>
+    		</tr>
+            <tr>
+                <td>Result</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.result}}</span>
+                    <div ng-show="currentMatch.updating">
+                        <input type="radio" ng-model="currentMatch.result" value="win">Win</input>
+                        <input type="radio" ng-model="currentMatch.result" value="loss">Loss</input>
+                    </div>
+                </td>
+    		</tr>
+            <tr>
+                <td>Competitive</td>
+                <td>
+                    <input type="checkbox" ng-model="currentMatch.competitive" ng-disabled="!currentMatch.updating">
+                </td>
+    		</tr>
+            <tr>
+                <td>TimeStarted</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.timestarted | date : "HH:mm"}}</span>
+                    <input ng-model="currentMatch.timestarted" type="time" ng-show="currentMatch.updating" placeholder="HH:mm">
+                </td>
+    		</tr>
+            <tr>
+                <td>DayOfTheWeek</td>
+                <td>
+                    <span ng-hide="currentMatch.updating">{{currentMatch.dayoftheweek}}</span>
+                    <select class="form-control" ng-model="currentMatch.dayoftheweek" ng-options="day for day in days" ng-show="currentMatch.updating"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>Music</td>
+                <td>
+                    <input type="checkbox" ng-model="currentMatch.music" ng-disabled="!currentMatch.updating">
+                </td>
+    		</tr>
+            <tr>  
+                <td>
+                    <button type="button" class="btn btn-success" ng-click="updateMatch(currentMatch)" ng-show="currentMatch.updating">Save</button>
+                    <button type="button" class="btn btn-warning" ng-click="currentMatch.updating=true;" ng-hide="currentMatch.updating">Update</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteMatch(currentMatch)">Delete</button>
+                </td>
+    		</tr>
+    	</tbody>
+    </table>
+    <hr>
+</div>
+<div>
+    <h2>Score</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Attribute</th><th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Points</td>
+                <td>
+                    <span ng-hide="currentMatch.score.updating">{{currentMatch.score.points}}</span>
+                    <input type="number" ng-model="currentMatch.score.points" ng-show="currentMatch.score.updating">
+                </td>
+            </tr>
+            <tr>
+                <td>Goals</td>
+                <td>
+                    <span ng-hide="currentMatch.score.updating">{{currentMatch.score.goals}}</span>
+                    <input type="number" ng-model="currentMatch.score.goals" ng-show="currentMatch.score.updating">
+                </td>
+            </tr>
+            <tr>
+                <td>Assists</td>
+                <td>
+                    <span ng-hide="currentMatch.score.updating">{{currentMatch.score.assists}}</span>
+                    <input type="number" ng-model="currentMatch.score.assists" ng-show="currentMatch.score.updating">
+                </td>
+            </tr>
+            <tr>
+                <td>Saves</td>
+                <td>
+                    <span ng-hide="currentMatch.score.updating">{{currentMatch.score.saves}}</span>
+                    <input type="number" ng-model="currentMatch.score.saves" ng-show="currentMatch.score.updating">
+                </td>
+            </tr>
+            <tr>
+                <td>Shots</td>
+                <td>
+                    <span ng-hide="currentMatch.score.updating">{{currentMatch.score.shots}}</span>
+                    <input type="number" ng-model="currentMatch.score.shots" ng-show="currentMatch.score.updating">
+                </td>
+            </tr>
+            <tr>  
+                <td>
+                    <button type="button" class="btn btn-success" ng-click="updateScore(currentMatch.score)" ng-show="currentMatch.score.updating">Save</button>
+                    <button type="button" class="btn btn-warning" ng-click="currentMatch.score.updating=true;" ng-hide="currentMatch.score.updating">Update</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteScore(currentMatch.score)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+</div>
+<div>
+    <h2>Car</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Attribute</th><th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Car</td>
+                <td>
+                     <span ng-hide="currentMatch.car.updating">{{currentMatch.car.name}}</span>
+				    <select class="form-control" ng-model="currentMatch.car.name" ng-options="car for car in cars" ng-show="currentMatch.car.updating"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>Boost</td>
+                <td> 
+                    <span ng-hide="currentMatch.car.updating">{{currentMatch.car.boost}}</span>
+                    <select class="form-control" ng-model="currentMatch.car.boost" ng-options="boost for boost in boosts" ng-show="currentMatch.car.updating"></select>
+                </td>
+            </tr>
+            <tr>  
+                <td>
+                    <button type="button" class="btn btn-success" ng-click="updateCar(currentMatch.car)" ng-show="currentMatch.car.updating">Save</button>
+                    <button type="button" class="btn btn-warning" ng-click="currentMatch.car.updating=true;" ng-hide="currentMatch.car.updating">Update</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteCar(currentMatch.car)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+</div>

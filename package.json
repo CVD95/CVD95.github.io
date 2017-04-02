@@ -1,0 +1,17 @@
+{
+  "name": "rlstatsanalyser",
+  "version": "1.0.0",
+  "description": "app to analyse your Rocket League matches",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "test": "karma start test/karma.conf.js",
+    "postinstall": "bower install",
+    "start": "http-server . -a localhost -p 8080 -c-1"
+  },
+  "author": "Cornelis van Dam",
+  "license": "ISC"
+}

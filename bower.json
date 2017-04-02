@@ -1,0 +1,23 @@
+{
+  "name": "rlstatsanalyser",
+  "description": "app to analyse your Rocket League matches",
+  "main": "index.js",
+  "authors": [
+    "Cornelis van Dam"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.6.2",
+    "angular-mocks": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "bootstrap": "^3.3.7"
+  }
+}
