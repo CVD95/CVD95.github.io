@@ -64,7 +64,7 @@
 				<label for="itemInput">Boost</label>
 				<select class="form-control" ng-model="newMatch.car.boost" ng-options="boost for boost in boosts"></select>
 			</div>
-			  	<button type="button" class="btn btn-danger">Reset</button>
+			  	<button type="button" class="btn btn-danger" ng-click="newMatch = null;">Reset</button>
 	  			<button ng-disabled="addMatchForm.$invalid" type="submit" class="btn btn-primary" ng-click="saveMatch()">Save</button>
 		</div>
 	</form>
